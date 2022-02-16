@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Repository;
 use Illuminate\Http\Request;
+use App\Http\Requests\RepositoryRequest;
 
 class RepositoryController extends Controller
 {
@@ -33,7 +34,7 @@ class RepositoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RepositoryRequest $request)
     {
         $request->user()->repositories()->create($request->all());
 
@@ -69,7 +70,7 @@ class RepositoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Repository $repository)
+    public function update(RepositoryRequest $request, Repository $repository)
     {
         $repository->update($request->all());
 
