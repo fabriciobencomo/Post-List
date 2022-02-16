@@ -46,12 +46,14 @@ class RepositoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Repository $repository
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Repository $repository)
     {
+        $this->authorize('view', $repository);
 
+        return view('repositories.show', compact('repository'));
     }
 
     /**

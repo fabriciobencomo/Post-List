@@ -30,7 +30,7 @@ class RepositoryPolicy
      */
     public function view(User $user, Repository $repository)
     {
-        //
+        return $user->id === $repository->user_id;
     }
 
     /**
