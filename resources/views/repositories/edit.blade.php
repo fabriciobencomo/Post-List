@@ -18,8 +18,6 @@
                     <hr class="my-4">
                     <input type="submit" value="Save Changes" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md">
                 </form>
-                <h1>{{$repository->url}}</h1>
-                <div>{{$repository->description}}</div>
             </div>
         </div>
     </div>
