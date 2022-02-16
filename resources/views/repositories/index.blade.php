@@ -26,7 +26,10 @@
                                     <a href="{{route('repositories.show', ['repository' => $repository->id])}}">See</a>
                                 </td>
                                 <td class="px-4 py-2">
-                                    <a href="{{route('repositories.show', ['repository' => $repository->id])}}">Edit</a>
+                                    <a href="{{route('repositories.edit', ['repository' => $repository->id])}}">Edit</a>
+                                </td>
+                                <td class="px-4 py-2">
+                                    <a href="{{route('repositories.destroy', ['repository' => $repository->id])}}">Delete</a>
                                 </td>
                             </tr>
                         @empty

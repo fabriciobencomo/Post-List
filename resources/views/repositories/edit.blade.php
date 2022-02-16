@@ -16,7 +16,7 @@
                     <label for="description" class="block font-medium text-sm text-gray-700">description *</label>
                     <textarea class="form-input w-full rounded-md shadow-sm "type="text" name="description">{{$repository->description}}</textarea>
                     <hr class="my-4">
-                    <input type="submit" value="Save Changes" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md">
+                    <input type="submit" value="Save Changes" class="bg-blue-500 text-black font-bold py-2 px-4 rounded-md">
                 </form>
             </div>
         </div>
