@@ -44,6 +44,7 @@ class RepositoryControllerTest extends TestCase
     }
 
     // Authentication
+
     public function test_show_repository()
     {
         $user = User::factory()->create();
@@ -51,6 +52,16 @@ class RepositoryControllerTest extends TestCase
         $repository = Repository::factory()->create(['user_id' => $user->id]);
 
         $this->actingAs($user)->get("repositories/{$repository->id}")->assertStatus(200)->assertSee($repository->description)->assertSee($repository->url);
+
+    }
+
+    public function test_edit_repository()
+    {
+        $user = User::factory()->create();
+
+        $repository = Repository::factory()->create(['user_id' => $user->id]);
+
+        $this->actingAs($user)->get("repositories/{$repository->id}/edit")->assertStatus(200)->assertSee($repository->description)->assertSee($repository->url);
 
     }
 
@@ -173,5 +184,14 @@ class RepositoryControllerTest extends TestCase
 
     }
 
+    public function test_edit_policy_repository()
+    {
+        $user = User::factory()->create();
+
+        $repository = Repository::factory()->create();
+
+        $this->actingAs($user)->get("repositories/{$repository->id}/edit")->assertStatus(403);
+
+    }
 
 }

@@ -59,12 +59,14 @@ class RepositoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Repository $repository
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Repository $repository)
     {
-        //
+        $this->authorize('view', $repository);
+
+        return view('repositories.edit', compact('repository'));
     }
 
     /**
