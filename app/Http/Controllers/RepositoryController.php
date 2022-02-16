@@ -13,9 +13,11 @@ class RepositoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $repositories = $request->user()->repositories;
 
+        return view('repositories.index', compact('repositories'));
     }
 
     /**
@@ -72,6 +74,8 @@ class RepositoryController extends Controller
      */
     public function update(RepositoryRequest $request, Repository $repository)
     {
+        $this->authorize('update', $repository);
+
         $repository->update($request->all());
 
         return redirect()->route('repositories.index');
@@ -85,6 +89,8 @@ class RepositoryController extends Controller
      */
     public function destroy(Repository $repository)
     {
+        $this->authorize('delete', $repository);
+
         $repository->delete();
 
         return redirect()->route('repositories.index');
